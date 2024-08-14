@@ -1,0 +1,69 @@
+<template>
+  <div class="container grid grid-cols-4 py-5 sticky top-0">
+    <div class="h-[25px] col-span-1">
+      <img src="/images/logos/logo.png" class="h-full object-contain" />
+    </div>
+    <div class="nav flex items-center justify-center col-span-2">
+      <NuxtLink href="/" class="nav__link active">Home</NuxtLink>
+      <NuxtLink href="/product" class="nav__link">Products</NuxtLink>
+      <NuxtLink href="/about" class="nav__link">About</NuxtLink>
+    </div>
+    <div class="col-span-1 flex items-center justify-end">
+      <div class="cart">
+        <div class="cart__badge">0</div>
+        <Icon name="mdi:cart-outline" size="28" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+@import "~/assets/scss/core/variables";
+
+.nav {
+  &__link {
+    @apply duration-200 ease-out relative block mx-10;
+    color: $secondary-color;
+
+    &::before {
+      @apply absolute duration-200 ease-out left-0 right-0 -bottom-1 w-full h-[1px] -translate-x-full;
+      content: "";
+    }
+
+    &.active,
+    &:hover {
+      color: darken($color: $primary-color, $amount: 20%);
+    }
+
+    &.active::before,
+    &:hover::before {
+      @apply translate-x-0;
+      background-color: $primary-color;
+    }
+  }
+}
+
+.cart {
+  position: relative;
+
+  &:hover {
+    @apply duration-200 ease-out -translate-y-1;
+  }
+
+  &__badge {
+    right: -4px;
+    top: -4px;
+    z-index: 1;
+    position: absolute;
+    min-width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    color: white;
+    font-size: 0.7rem;
+  }
+}
+</style>
