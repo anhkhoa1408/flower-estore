@@ -1,12 +1,50 @@
+<script setup>
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+const isVisible = ref(false);
+const swiperRef = ref(null);
+const slideIndex = ref(0);
+
+const sliderImgs = [
+  "/images/product/flower-8-removebg.png",
+  "/images/product/flower-7-removebg.png",
+  "/images/product/flower-1-removebg.png",
+];
+
+onMounted(() => {
+  isVisible.value = true;
+});
+
+const onSwiper = (swiper) => {
+  swiperRef.value = swiper;
+};
+
+const swiperNextSlide = () => {
+  swiperRef.value.slideNext();
+};
+
+const swiperPrevSlide = () => {
+  swiperRef.value.slidePrev();
+};
+
+const onSlideChange = (swiper) => {
+  slideIndex.value = swiper.activeIndex;
+};
+</script>
+
 <template>
-  <div class="relative">
+  <div class="relative banner">
+    <button :disabled="slideIndex === 0" class="slider__nav slider__nav-left" @click="swiperPrevSlide">
+      <Icon name="mdi:chevron-left" size="30" />
+    </button>
+    <button
+      :disabled="slideIndex === sliderImgs.length - 1"
+      class="slider__nav slider__nav-right"
+      @click="swiperNextSlide"
+    >
+      <Icon name="mdi:chevron-right" size="30" />
+    </button>
     <div class="absolute w-full h-full inset-0 bg-[#F3F3F3]">
-      <button class="slider__nav slider__nav-left" @click="swiperPrevSlide">
-        <Icon name="mdi:chevron-left" size="30" />
-      </button>
-      <button class="slider__nav slider__nav-right" @click="swiperNextSlide">
-        <Icon name="mdi:chevron-right" size="30" />
-      </button>
       <div class="container py-20">
         <Transition name="fade" appear>
           <div v-show="isVisible" class="w-4/12 flex flex-col max-h-[500px]">
@@ -23,6 +61,7 @@
       </div>
     </div>
     <swiper
+      class="h-[500px]"
       :ref="swiperRef"
       :slides-per-view="1"
       :space-between="50"
@@ -30,45 +69,15 @@
       :scrollbar="{ draggable: true }"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
-      class="h-[500px]"
     >
-      <swiper-slide class="w-full h-full">
-        <img src="/images/product/flower-8-removebg.png" class="w-full h-full object-contain slider__img" />
-      </swiper-slide>
-      <swiper-slide class="w-full h-full">
-        <img src="/images/product/flower-7-removebg.png" class="w-full h-full object-contain slider__img" />
-      </swiper-slide>
-      <swiper-slide class="w-full h-full">
-        <img src="/images/product/flower-1-removebg.png" class="w-full h-full object-contain slider__img" />
-      </swiper-slide>
+      <template v-for="sliderImg in sliderImgs">
+        <swiper-slide class="w-full h-full">
+          <img :src="sliderImg" class="w-full h-full object-contain slider__img" />
+        </swiper-slide>
+      </template>
     </swiper>
   </div>
 </template>
-
-<script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-
-const isVisible = ref(false);
-
-const swiperRef = ref(null);
-
-onMounted(() => {
-  isVisible.value = true;
-});
-
-const onSwiper = (swiper) => {
-  console.log(swiper);
-  swiperRef.value = swiper;
-};
-
-const swiperNextSlide = () => {
-  swiperRef.value.slideNext();
-};
-
-const swiperPrevSlide = () => {
-  swiperRef.value.slidePrev();
-};
-</script>
 
 <style lang="scss" scoped>
 .fade-enter-active,
@@ -83,7 +92,7 @@ const swiperPrevSlide = () => {
 }
 
 .slider__nav {
-  @apply bg-secondary-100 p-2 w-[40px] h-[40px] flex items-center justify-center duration-200;
+  @apply bg-secondary-100 opacity-0 p-2 w-[40px] h-[40px] flex items-center justify-center duration-500;
   &:hover {
     @apply bg-primary-500 text-white;
   }
@@ -95,6 +104,14 @@ const swiperPrevSlide = () => {
   &.slider__nav-right {
     @apply absolute z-10 right-2 top-[50%] translate-y-[-50%];
   }
+
+  &:disabled {
+    @apply pointer-events-none bg-slate-200 !opacity-40;
+  }
+}
+
+.banner:hover .slider__nav {
+  @apply opacity-100;
 }
 
 .slider__img {
