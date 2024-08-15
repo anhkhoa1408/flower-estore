@@ -38,16 +38,6 @@ const onSlideChange = (swiper: Swiper) => {
   <div class="relative banner">
     <img class="banner__box" src="/images/icon/box.svg" />
     <img class="banner__box--forward" src="/images/icon/store.png" />
-    <button :disabled="slideIndex === 0" class="slider__nav slider__nav-left" @click="swiperPrevSlide">
-      <Icon name="mdi:chevron-left" size="30" />
-    </button>
-    <button
-      :disabled="slideIndex === sliderImgs.length - 1"
-      class="slider__nav slider__nav-right"
-      @click="swiperNextSlide"
-    >
-      <Icon name="mdi:chevron-right" size="30" />
-    </button>
     <div class="absolute w-full h-full inset-0 bg-[#F3F3F3]">
       <div class="container py-20">
         <Transition name="fade" appear>
@@ -65,7 +55,7 @@ const onSlideChange = (swiper: Swiper) => {
       </div>
     </div>
     <swiper-container
-      class="h-[500px]"
+      class="h-[500px] swiper__wrap"
       :autoplay="true"
       :ref="swiperRef"
       :slides-per-view="1"
@@ -75,6 +65,11 @@ const onSlideChange = (swiper: Swiper) => {
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
+      <SwiperNavLeft :is-disabled="slideIndex === 0" @swiper-prev-slide="swiperPrevSlide"></SwiperNavLeft>
+      <SwiperNavRight
+        :is-disabled="slideIndex === sliderImgs.length - 1"
+        @swiper-next-slide="swiperNextSlide"
+      ></SwiperNavRight>
       <template v-for="sliderImg in sliderImgs">
         <swiper-slide class="w-full h-full">
           <img :src="sliderImg" class="w-full h-full object-contain slider__img" />
@@ -94,29 +89,6 @@ const onSlideChange = (swiper: Swiper) => {
 .fade-leave-to {
   opacity: 0;
   max-height: 0;
-}
-
-.slider__nav {
-  @apply bg-secondary-100 opacity-0 p-2 w-[40px] h-[40px] flex items-center justify-center duration-500;
-  &:hover {
-    @apply bg-primary-500 text-white;
-  }
-
-  &.slider__nav-left {
-    @apply absolute z-10 left-2 top-[50%] translate-y-[-50%];
-  }
-
-  &.slider__nav-right {
-    @apply absolute z-10 right-2 top-[50%] translate-y-[-50%];
-  }
-
-  &:disabled {
-    @apply pointer-events-none bg-slate-200 !opacity-40;
-  }
-}
-
-.banner:hover .slider__nav {
-  @apply opacity-100;
 }
 
 .slider__img {

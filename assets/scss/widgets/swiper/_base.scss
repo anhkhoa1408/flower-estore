@@ -1,2 +1,30 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
+
+.swiper__wrap {
+  position: relative;
+
+  .slider__nav {
+    @apply bg-secondary-100 opacity-40 p-2 w-[40px] h-[40px] flex items-center justify-center duration-500;
+
+    &:hover {
+      @apply bg-primary-500 text-white;
+    }
+
+    &.slider__nav-left {
+      @apply absolute z-10 left-2 top-[50%] translate-y-[-50%];
+    }
+
+    &.slider__nav-right {
+      @apply absolute z-10 right-2 top-[50%] translate-y-[-50%];
+    }
+
+    &:disabled {
+      @apply pointer-events-none bg-slate-200 !opacity-40;
+    }
+  }
+
+  &:hover .slider__nav {
+    @apply opacity-100;
+  }
+}

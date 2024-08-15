@@ -11,4 +11,5 @@ useSeoMeta({
   <HomeExperts></HomeExperts>
   <HomeSubscribe></HomeSubscribe>
   <HomeBlog></HomeBlog>
+  <HomeReview></HomeReview>
 </template>
