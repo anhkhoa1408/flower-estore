@@ -8,4 +8,7 @@ useSeoMeta({
   <HomeBanner></HomeBanner>
   <HomeProductList></HomeProductList>
   <HomeBenefit></HomeBenefit>
+  <HomeExperts></HomeExperts>
+  <HomeSubscribe></HomeSubscribe>
+  <HomeBlog></HomeBlog>
 </template>
