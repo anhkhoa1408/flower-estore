@@ -21,9 +21,7 @@ const { data } = defineProps(["data"]);
 
 <style lang="scss" scoped>
 .product-card {
-  @apply m-4 relative;
-  flex-basis: calc(25% - 32px);
-  max-width: calc(25% - 32px);
+  @apply m-4 relative basis-[calc(50%-32px)] max-w-[calc(50%-32px)] xl:basis-[calc(25%-32px)] xl:max-w-[calc(25%-32px)];
 
   &__img {
     @apply h-[330px] relative;

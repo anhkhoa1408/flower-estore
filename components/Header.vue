@@ -42,21 +42,21 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-[80px] container bg-white">
+  <div class="h-[60px] lg:h-[80px] container bg-white">
     <div ref="headerRef" class="z-50 bg-white duration-1000 ease-linear py-5">
       <div class="container grid grid-cols-4">
-        <div class="h-[25px] col-span-1">
+        <div class="h-[15px] lg:h-[25px] col-span-2 lg:col-span-1">
           <img src="/images/logos/logo.png" class="h-full object-contain" />
         </div>
-        <div class="nav flex items-center justify-center col-span-2">
+        <div class="nav items-center justify-center hidden lg:flex lg:col-span-2">
           <NuxtLink href="/" class="nav__link active">Home</NuxtLink>
           <NuxtLink href="/product" class="nav__link">Products</NuxtLink>
           <NuxtLink href="/about" class="nav__link">About</NuxtLink>
         </div>
-        <div class="col-span-1 flex items-center justify-end">
+        <div class="col-span-2 lg:col-span-1 flex items-center justify-end">
           <div class="cart">
             <div class="cart__badge">0</div>
-            <Icon name="mdi:cart-outline" size="28" />
+            <Icon name="mdi:cart-outline" size="24" />
           </div>
         </div>
       </div>

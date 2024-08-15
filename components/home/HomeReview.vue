@@ -38,7 +38,7 @@ const onSlideChange = (swiper: Swiper) => {
 <template>
   <div class="container flex items-center justify-center py-10">
     <swiper-container
-      class="h-[500px] w-10/12 swiper__wrap"
+      class="h-[500px] w-full lg:w-10/12 swiper__wrap"
       :autoplay="true"
       :ref="swiperRef"
       :slides-per-view="1"
@@ -56,11 +56,11 @@ const onSlideChange = (swiper: Swiper) => {
       <template v-for="sliderImg in sliderImgs">
         <swiper-slide class="w-full h-full flex flex-col items-center justify-center">
           <img :src="sliderImg" class="w-[100px] h-[100px] rounded-full mb-5" />
-          <p class="text-xl leading-loose text-center text-secondary-800 font-medium mb-8">
+          <p class="text-sm lg:text-xl leading-loose text-center text-secondary-800 font-medium mb-8">
             Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus lingua.
           </p>
-          <p class="text-base font-semibold mb-3">Reviewer</p>
-          <p class="text-sm text-secondary-400">Florist</p>
+          <p class="text-sm lg:text-base font-semibold mb-3">Reviewer</p>
+          <p class="text-xs lg:text-sm text-secondary-400">Florist</p>
         </swiper-slide>
       </template>
     </swiper-container>

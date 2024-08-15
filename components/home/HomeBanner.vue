@@ -38,12 +38,14 @@ const onSlideChange = (swiper: Swiper) => {
   <div class="relative banner">
     <img class="banner__box" src="/images/icon/box.svg" />
     <img class="banner__box--forward" src="/images/icon/store.png" />
-    <div class="absolute w-full h-full inset-0 bg-[#F3F3F3]">
+    <div class="relative lg:absolute w-full h-[60vh] lg:h-full inset-0 bg-[#F3F3F3]">
       <div class="container py-20">
         <Transition name="fade" appear>
-          <div v-show="isVisible" class="w-4/12 flex flex-col max-h-[500px]">
-            <h1 class="text-4xl leading-normal font-semibold mb-4">
-              Send <span class="text-primary-500">flowers</span> like<br />
+          <div v-show="isVisible" class="w-full lg:w-4/12 flex flex-col max-h-[500px]">
+            <h1
+              class="text-2xl md:text-3xl lg:text-4xl leading-normal md:leading-relaxed lg:leading-normal font-semibold mb-4"
+            >
+              Send <span class="text-primary-500">flowers</span> like<br class="hidden lg:inline" />
               you mean it
             </h1>
             <p class="leading-loose text-base text-justify text-secondary-500">
@@ -55,7 +57,7 @@ const onSlideChange = (swiper: Swiper) => {
       </div>
     </div>
     <swiper-container
-      class="h-[500px] swiper__wrap"
+      class="h-[450px] swiper__wrap hidden lg:block"
       :autoplay="true"
       :ref="swiperRef"
       :slides-per-view="1"
@@ -119,6 +121,11 @@ const onSlideChange = (swiper: Swiper) => {
   object-fit: contain;
   animation: MovingUpDown 4s linear infinite forwards;
   z-index: 20;
+
+  @media screen and (max-width: 1025px) {
+    left: unset;
+    right: 0;
+  }
 }
 
 @keyframes RotateAndMove {
