@@ -52,11 +52,11 @@ const onSlideChange = (swiper: Swiper) => {
       <div class="container py-20">
         <Transition name="fade" appear>
           <div v-show="isVisible" class="w-4/12 flex flex-col max-h-[500px]">
-            <h1 class="text-5xl leading-normal font-semibold mb-4">
+            <h1 class="text-4xl leading-normal font-semibold mb-4">
               Send <span class="text-primary-500">flowers</span> like<br />
               you mean it
             </h1>
-            <p class="leading-loose text-lg text-justify">
+            <p class="leading-loose text-base text-justify text-secondary-500">
               Where flowers are our inspiration to create lasting memories. Whatever the occasion, our flowers will make
               it special cursus a sit amet mauris.
             </p>

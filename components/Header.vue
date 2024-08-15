@@ -1,17 +1,64 @@
+<script setup lang="ts">
+const headerRef = ref<HTMLDivElement>();
+const scrollHandler = () => {
+  console.log(headerRef.value);
+  if (headerRef.value) {
+    if (window.scrollY <= headerRef.value.offsetHeight + 50) {
+      headerRef.value.classList.add("translate-y-0");
+      headerRef.value.classList.remove(
+        "fixed",
+        "top-0",
+        "left-0",
+        "right-0",
+        "translate-y-[calc(-100%-100px)]",
+        "border-solid",
+        "border-b-[1px]",
+        "border-b-secondary-200",
+      );
+    } else if (window.scrollY > headerRef.value.offsetHeight + 50 && window.scrollY <= 200) {
+      headerRef.value.classList.remove("translate-y-0");
+      headerRef.value.classList.add("translate-y-[calc(-100%-100px)]");
+    } else {
+      headerRef.value.classList.remove("translate-y-[calc(-100%-100px)]");
+      headerRef.value.classList.add(
+        "fixed",
+        "top-0",
+        "left-0",
+        "right-0",
+        "translate-y-0",
+        "border-solid",
+        "border-b-[1px]",
+        "border-b-secondary-200",
+      );
+    }
+  }
+};
+onMounted(() => {
+  window.addEventListener("scroll", scrollHandler);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", scrollHandler);
+});
+</script>
+
 <template>
-  <div class="container grid grid-cols-4 py-5 sticky top-0">
-    <div class="h-[25px] col-span-1">
-      <img src="/images/logos/logo.png" class="h-full object-contain" />
-    </div>
-    <div class="nav flex items-center justify-center col-span-2">
-      <NuxtLink href="/" class="nav__link active">Home</NuxtLink>
-      <NuxtLink href="/product" class="nav__link">Products</NuxtLink>
-      <NuxtLink href="/about" class="nav__link">About</NuxtLink>
-    </div>
-    <div class="col-span-1 flex items-center justify-end">
-      <div class="cart">
-        <div class="cart__badge">0</div>
-        <Icon name="mdi:cart-outline" size="28" />
+  <div class="h-[80px] container bg-white">
+    <div ref="headerRef" class="z-50 bg-white duration-1000 ease-linear py-5">
+      <div class="container grid grid-cols-4">
+        <div class="h-[25px] col-span-1">
+          <img src="/images/logos/logo.png" class="h-full object-contain" />
+        </div>
+        <div class="nav flex items-center justify-center col-span-2">
+          <NuxtLink href="/" class="nav__link active">Home</NuxtLink>
+          <NuxtLink href="/product" class="nav__link">Products</NuxtLink>
+          <NuxtLink href="/about" class="nav__link">About</NuxtLink>
+        </div>
+        <div class="col-span-1 flex items-center justify-end">
+          <div class="cart">
+            <div class="cart__badge">0</div>
+            <Icon name="mdi:cart-outline" size="28" />
+          </div>
+        </div>
       </div>
     </div>
   </div>

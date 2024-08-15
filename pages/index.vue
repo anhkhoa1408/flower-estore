@@ -7,4 +7,5 @@ useSeoMeta({
 <template>
   <HomeBanner></HomeBanner>
   <HomeProductList></HomeProductList>
+  <HomeBenefit></HomeBenefit>
 </template>
