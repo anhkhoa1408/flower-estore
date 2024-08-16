@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const headerRef = ref<HTMLDivElement>();
 const scrollHandler = () => {
-  console.log(headerRef.value);
   if (headerRef.value) {
     if (window.scrollY <= headerRef.value.offsetHeight + 50) {
       headerRef.value.classList.add("translate-y-0");
