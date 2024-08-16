@@ -10,22 +10,22 @@
     </p>
     <div class="grid grid-cols-4 gap-5">
       <div class="col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center">
-        <img src="/images/user/user-1.png" class="object-cover rounded-full mb-3" width="200" height="200" />
+        <img src="/images/user/user-1.png" class="object-cover rounded-full mb-3 w-[150px] lg:w-[200px]" />
         <p class="text-secondary-950 font-semibold text-base mb-2">Crystal Brooks</p>
         <p class="text-secondary-500 text-sm">Florist</p>
       </div>
       <div class="col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center">
-        <img src="/images/user/user-2.png" class="object-cover rounded-full mb-3" width="200" height="200" />
+        <img src="/images/user/user-2.png" class="object-cover rounded-full mb-3 w-[150px] lg:w-[200px]" />
         <p class="text-secondary-950 font-semibold text-base mb-2">Shirley Harris</p>
         <p class="text-secondary-500 text-sm">Manager</p>
       </div>
       <div class="col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center">
-        <img src="/images/user/user-3.png" class="object-cover rounded-full mb-3" width="200" height="200" />
+        <img src="/images/user/user-3.png" class="object-cover rounded-full mb-3 w-[150px] lg:w-[200px]" />
         <p class="text-secondary-950 font-semibold text-base mb-2">Amanda Watkins</p>
         <p class="text-secondary-500 text-sm">Florist</p>
       </div>
       <div class="col-span-4 md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center">
-        <img src="/images/user/user-4.png" class="object-cover rounded-full mb-3" width="200" height="200" />
+        <img src="/images/user/user-4.png" class="object-cover rounded-full mb-3 w-[150px] lg:w-[200px]" />
         <p class="text-secondary-950 font-semibold text-base mb-2">Beverly Clark</p>
         <p class="text-secondary-500 text-sm">Florist</p>
       </div>

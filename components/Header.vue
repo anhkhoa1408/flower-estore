@@ -42,7 +42,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-[60px] lg:h-[80px] container bg-white">
+  <div class="h-[60px] lg:h-[80px] bg-white">
     <div ref="headerRef" class="z-50 bg-white duration-1000 ease-linear py-5">
       <div class="container grid grid-cols-4">
         <div class="h-[15px] lg:h-[25px] col-span-2 lg:col-span-1">
@@ -50,8 +50,8 @@ onUnmounted(() => {
         </div>
         <div class="nav items-center justify-center hidden lg:flex lg:col-span-2">
           <NuxtLink href="/" class="nav__link active">Home</NuxtLink>
-          <NuxtLink href="/product" class="nav__link">Products</NuxtLink>
-          <NuxtLink href="/about" class="nav__link">About</NuxtLink>
+          <NuxtLink href="/product" class="nav__link pointer-events-none opacity-50">Products</NuxtLink>
+          <NuxtLink href="/about" class="nav__link pointer-events-none opacity-50">About</NuxtLink>
         </div>
         <div class="col-span-2 lg:col-span-1 flex items-center justify-end">
           <div class="cart">

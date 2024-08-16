@@ -1,7 +1,7 @@
 <template>
   <div class="h-[450px] subscribe flex flex-col items-center justify-center">
     <h1
-      class="text-2xl md:text-3xl lg:text-4xl leading-normal md:leading-relaxed lg:leading-normal font-semibold text-white font-semibold mb-5"
+      class="text-2xl md:text-3xl lg:text-4xl leading-normal md:leading-relaxed lg:leading-normal text-white font-semibold mb-5"
     >
       Join The Colorful Bunch!
     </h1>
@@ -26,7 +26,7 @@
     align-items: center;
 
     input {
-      @apply outline-none p-4 text-xs lg:text-sm w-[200px] lg:w-[500px];
+      @apply outline-none p-4 text-xs lg:text-sm w-[200px] md:w-[300px] lg:w-[500px];
       height: 100%;
     }
 

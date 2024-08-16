@@ -5,7 +5,7 @@
   position: relative;
 
   .slider__nav {
-    @apply bg-secondary-100 opacity-40 p-2 w-[40px] h-[40px] flex items-center justify-center duration-500;
+    @apply bg-secondary-50 opacity-40 p-2 w-[40px] h-[40px] flex items-center justify-center duration-500;
 
     &:hover {
       @apply bg-primary-500 text-white;

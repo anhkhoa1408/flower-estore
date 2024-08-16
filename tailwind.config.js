@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: "Montserrat",
       container: {
         center: true,
+        padding: "1rem",
       },
       colors: {
         primary: {
